@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root{
+    --color_blue: #0477bf;
+    --particulas_color: #00ffff80;
+    --gray_color: #e1e1e1;
+    --white_color: #ffffff;
+    --black_color: #000000;
+    --texts_color: #252b31;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white_color);
+    
+    font-family: 'Poppins', sans-seri;
+}
+
+/* ================= estilos del login ===================== */
+
+.login_wrapper{
+    width: 90%;
+    max-width: 300px;
+    border-radius: 10px;
+    background-color: var(--white_color);
+    box-shadow: 0 2px 3px #00000030;
+    padding: 40px 20px;
+}
+.title{
+    color: var(--color_blue);
+    text-align: center;
+}
+.form__login{
+    padding: 10px 0;
+}
+input{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 10px;
+    outline: none;
+    border: 1px solid var(--gray_color);
+    border-bottom: 1px solid var(--gray_color);
+    color: var(--texts_color);
+}
+.input__form:focus{
+    border-color: var(--color_blue);
+}
+.cta{
+    width: 100%;
+    border-radius: 15px;
+    border-width: none;
+    background-color: var(--color_blue);
+    color: var(--white_color);
+    cursor: pointer;
+}
+
+/* ============== estilos de las particulas ================ */
+
+.circulo{
+    position: fixed;
+    z-index: -1;
+    bottom: 0;
+    width: 20px;
+    aspect-ratio: 1/1;
+    background: var(--particulas_color);
+    box-shadow: 0 0 10px var(--particulas_color),
+    0 0 20px var(--particulas_color),
+    0 0 30px var(--particulas_color),
+    0 0 50px var(--particulas_color);
+    border-radius: 50%;
+    animation: animate 5s linear forwards;
+}
+
+@keyframes animate{
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+
