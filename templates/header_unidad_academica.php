@@ -3,9 +3,12 @@
 session_start();
 
 $ulr_base = "http://localhost/sistema_suiza/";
+
+//verificamos si hay usuario logueado y si el secretario pertenece a esta area
+
 if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php");
-}elseif ($_SESSION['cargo'] !== "administrador") {
+    header("Location: ../../login.php");
+}elseif ($_SESSION['cargo'] !== "secretaria" || $_SESSION['area_cargo'] !== "unidad academica") {
     header("location: ../../error.php");
 }
 ?>
@@ -46,14 +49,13 @@ if (!isset($_SESSION['usuario'])) {
     <nav class="nav__container">
         <ul class="nav__links">
             <li>
-                <a href="<?php echo $ulr_base;?>secciones/direccion/index.php" class="link white_mode"><i class="fa-solid fa-house"></i>Inicio</a>
+                <a href="<?php echo $ulr_base;?>secciones/unidad_academica/index.php" class="link white_mode"><i class="fa-solid fa-house"></i>Inicio</a>
             </li>
             <li >
                 <a id="dropdown" href="#" class="link white_mode"><i class="fa-solid fa-folder-open"></i>Tramites<i class="fa-solid fa-caret-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="<?php echo $ulr_base;?>secciones/direccion/enviarDocDireccion.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Nuevo</a></li>
-                    <li><a href="<?php echo $ulr_base;?>secciones/direccion/docsEnviados.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Enviados</a></li>
-                    <li><a href="<?php echo $ulr_base;?>secciones/direccion/docsRecibidos.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Recibidos</a></li>
+                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Nuevo</a></li>
+                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Enviados</a></li>
                 </ul>
             </li>
             <li>
@@ -61,9 +63,6 @@ if (!isset($_SESSION['usuario'])) {
             </li>
             <li>
                 <a href="#" class="link white_mode"><i class="fa-solid fa-trash-can"></i>Papelera</a>
-            </li>
-            <li>
-                <a href="#" class="link white_mode"><i class="fa-solid fa-gear"></i>configuracion</a>
             </li>
         </ul>
     </nav>

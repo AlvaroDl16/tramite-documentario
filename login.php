@@ -1,30 +1,4 @@
-<?php
-
-session_start();
-
-if ($_POST) {
-    include("bd.php");
-    $sentencia = $conexion->prepare("SELECT *, count(*) as x_users FROM usuarios
-    WHERE username=:username AND password=:password");
-    $user = $_POST['usuario'];
-    $pass = $_POST['contraseña'];
-
-    $sentencia->bindParam(":username", $user);
-    $sentencia->bindParam(":password", $pass);
-
-    $sentencia->execute();
-
-    $lista_usuarios = $sentencia->fetch(PDO::FETCH_LAZY);
-
-    if ($lista_usuarios["x_users"] > 0) {
-        $_SESSION['usuario'] = $lista_usuarios["username"];
-        header("Location: index.php");
-    }else{
-        $mensaje = "vuelve a intentar";
-    }
-}
-
-?>
+<?php include("./controllers/loginController.php");?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +6,7 @@ if ($_POST) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesion</title>
-    <link rel="stylesheet" href="./css/log.css">
+    <link rel="stylesheet" href="./css/login.css">
     <script src="https://kit.fontawesome.com/4c66ccb783.js" crossorigin="anonymous"></script>
     
 </head>

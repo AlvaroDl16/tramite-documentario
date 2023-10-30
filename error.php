@@ -1,0 +1,1 @@
+<?php echo "no tienes permisos para acceder a esta ruta"?>
