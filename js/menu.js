@@ -6,3 +6,4 @@ menu.addEventListener('click', ()=>{
     submenu.classList.toggle('submenu__show');
     arrow.classList.toggle('down__rotate');
 })
+

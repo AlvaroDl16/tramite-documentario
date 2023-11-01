@@ -123,6 +123,7 @@ body.dark .link:hover, body.dark .submenu__link:hover{
     grid-area: sidebar;
     background-color: var(--bg_color_white);
     transition: background-color .3s;
+    overflow-y: auto;
 }
 .logo_container{
     width: 100%;
