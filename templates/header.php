@@ -4,8 +4,8 @@ session_start();
 
 $ulr_base = "http://localhost/sistema_suiza/";
 if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php");
-}elseif ($_SESSION['cargo'] !== "administrador") {
+    header("Location: ../../login.php");
+}elseif ($_SESSION['cargo'] !== "administrador" || $_SESSION['area_cargo'] !== "administrador") {
     header("location: ../../error.php");
 }
 ?>
@@ -46,14 +46,14 @@ if (!isset($_SESSION['usuario'])) {
     <nav class="nav__container">
         <ul class="nav__links">
             <li>
-                <a href="<?php echo $ulr_base;?>secciones/direccion/index.php" class="link white_mode"><i class="fa-solid fa-house"></i>Inicio</a>
+                <a href="<?php echo $ulr_base;?>secciones/administrador/index.php" class="link white_mode"><i class="fa-solid fa-house"></i>Inicio</a>
             </li>
             <li >
                 <a id="dropdown" href="#" class="link white_mode"><i class="fa-solid fa-folder-open"></i>Tramites<i class="fa-solid fa-caret-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="<?php echo $ulr_base;?>secciones/direccion/redactar.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Nuevo</a></li>
-                    <li><a href="<?php echo $ulr_base;?>secciones/direccion/recibidos.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Recibidos</a></li>
-                    <li><a href="<?php echo $ulr_base;?>secciones/direccion/enviados.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Enviados</a></li>
+                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Redactar</a></li>
+                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Recibidos</a></li>
+                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Enviados</a></li>
                 </ul>
             </li>
             <li>
@@ -64,6 +64,10 @@ if (!isset($_SESSION['usuario'])) {
             </li>
             <li>
                 <a href="#" class="link white_mode"><i class="fa-solid fa-gear"></i>configuracion</a>
+                
+            </li>
+            <li>
+                <a href="<?php echo $ulr_base;?>secciones/administrador/usuarios.php" class="link white_mode"><i class="fa-solid fa-users"></i></i>Usuarios</a>
                 
             </li>
             <li>

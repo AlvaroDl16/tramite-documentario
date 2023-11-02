@@ -1,4 +1,4 @@
-<?php include("../../templates/header.php"); ?>
+<?php include("../../templates/header_direccion.php"); ?>
 
     <section >
         <h1 class="white_mode">enviar nuevo documento area direccion</h1>

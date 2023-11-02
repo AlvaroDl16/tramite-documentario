@@ -1,7 +1,7 @@
 <?php
 
 $servidor = "localhost";
-$dataBase = "gestion_documentos";
+$dataBase = "practica";
 $usuario = "root";
 $contraseña = "";
 

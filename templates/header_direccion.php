@@ -49,12 +49,13 @@ if (!isset($_SESSION['usuario'])) {
     <nav class="nav__container">
         <ul class="nav__links">
             <li>
-                <a href="<?php echo $ulr_base;?>secciones/unidad_academica/index.php" class="link white_mode"><i class="fa-solid fa-house"></i>Inicio</a>
+                <a href="<?php echo $ulr_base;?>secciones/direccion/index.php" class="link white_mode"><i class="fa-solid fa-house"></i>Inicio</a>
             </li>
             <li >
                 <a id="dropdown" href="#" class="link white_mode"><i class="fa-solid fa-folder-open"></i>Tramites<i class="fa-solid fa-caret-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Nuevo</a></li>
+                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Redactar</a></li>
+                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Recibidos</a></li>
                     <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Enviados</a></li>
                 </ul>
             </li>

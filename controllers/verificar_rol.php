@@ -30,6 +30,10 @@ if ($_SESSION['cargo'] == "secretaria") {
             header("location:".$ruta_base."secciones/tesoreria/index.php");
             break;
 
+        case 'dsi':
+            header("location:".$ruta_base."secciones/desarrollo_sistemas/index.php");
+            break;
+
         default:
             echo "no existe esa ruta";
             break;

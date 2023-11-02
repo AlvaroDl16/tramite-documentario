@@ -7,9 +7,9 @@ $ulr_base = "http://localhost/sistema_suiza/";
 //verificamos si hay usuario logueado y si el secretario pertenece a esta area
 
 if (!isset($_SESSION['usuario'])) {
-    header("Location: ../login.php");
-}elseif ($_SESSION['cargo'] !== "secretaria") {
-    header("location: ../error.php");
+    header("Location: ../../login.php");
+}elseif ($_SESSION['cargo'] !== "secretaria" || $_SESSION['area_cargo'] !== "dsi") {
+    header("location: ../../error.php");
 }
 ?>
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ if (!isset($_SESSION['usuario'])) {
 <header class="header_wrapper">
     <div class="user_text white_mode">
         <img src="<?php echo $ulr_base;?>images/alvaro.jpg" alt="" class="user_img">
-        <h3 class="user_name">Bienvenido <?php echo $_SESSION['usuario'];?></h3>
+        <h3 class="user_name">Bienvenido <?php echo $_SESSION['usuario'].'-'.$_SESSION['area_cargo'];?></h3>
     </div>
 
     <div class="buttons">
@@ -49,13 +49,14 @@ if (!isset($_SESSION['usuario'])) {
     <nav class="nav__container">
         <ul class="nav__links">
             <li>
-                <a href="<?php echo $ulr_base;?>secciones/secretarios.php" class="link white_mode"><i class="fa-solid fa-house"></i>Inicio</a>
+                <a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/index.php" class="link white_mode"><i class="fa-solid fa-house"></i>Inicio</a>
             </li>
             <li >
                 <a id="dropdown" href="#" class="link white_mode"><i class="fa-solid fa-folder-open"></i>Tramites<i class="fa-solid fa-caret-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="<?php echo $ulr_base;?>secciones/secretariosEnviar.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Nuevo</a></li>
-                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Enviados</a></li>
+                    <li><a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/redactar.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Redactar</a></li>
+                    <li><a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/recibidos.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Recibidos</a></li>
+                    <li><a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/enviados.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Enviados</a></li>
                 </ul>
             </li>
             <li>

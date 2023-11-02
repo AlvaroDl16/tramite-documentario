@@ -1,7 +1,7 @@
-<?php include("../../templates/header_direccion.php"); ?>
+<?php include("../../templates/header_dsi.php"); ?>
 
     <section>
-        <h1>ver docs enviados direccion</h1>
+        <h1>ver docs enviados dsi</h1>
 
         <table>
             <tr>
