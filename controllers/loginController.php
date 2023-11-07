@@ -5,14 +5,9 @@ session_start();
 if ($_POST) {
     include("bd.php");
 
-    // $sentencia = $conexion->prepare("SELECT *, count(*) as x_users FROM 
-    // usuarios, roles, personal,areas_administrativas WHERE
-    //  usuarios.id_rol=roles.id AND usuarios.id_personal=personal.id AND
-    //   personal.id_area=areas_administrativas.id AND
-    //    user=:user AND password=:password");
-    $sentencia = $conexion->prepare("SELECT *, count(*) as x_users FROM usuarios, roles, areas_administrativas WHERE usuarios.id_rol=roles.id_rol AND usuarios.id_area=areas_administrativas.id_area AND username=:username AND password=:password");
-
-// SELECT *, count(*) as x_users FROM usuarios, roles, areas_administrativas WHERE usuarios.id_rol=roles.id_rol AND usuarios.id_area=areas_administrativas.id_area AND username="AlvaroDL" AND password="12345";  codigo nuevo 
+    $sentencia = $conexion->prepare("SELECT *, count(*) as x_users FROM usuarios, roles, areas_administrativas 
+    WHERE usuarios.id_rol=roles.id_rol AND usuarios.id_area=areas_administrativas.id_area 
+    AND username=:username AND password=:password");
 
     $user = $_POST['usuario'];
     $pass = $_POST['contraseña'];

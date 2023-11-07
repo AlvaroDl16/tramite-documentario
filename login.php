@@ -1,5 +1,12 @@
 <?php include("./controllers/loginController.php");?>
 
+<?php
+    if(!empty($_SESSION['usuario'])){
+        header("Location: controllers/verificar_rol.php");
+    }else{
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,3 +35,5 @@
     <script src="./js/particulas.js"></script>
 </body>
 </html>
+
+<?php } ?>

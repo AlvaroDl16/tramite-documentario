@@ -11,13 +11,9 @@
         $consulta->execute();
         $lista = $consulta->fetch(PDO::FETCH_LAZY);
 
-        $consulta_area = $conexion->prepare("SELECT * FROM areas_administrativas");
-        $consulta_area->execute();
-        $lista_areas = $consulta_area->fetchAll(PDO::FETCH_ASSOC);
+        include("mostrar_areas.php");
 
-        $consulta_rol = $conexion->prepare("SELECT * FROM roles");
-        $consulta_rol->execute();
-        $lista_roles = $consulta_rol->fetchAll(PDO::FETCH_ASSOC);
+        include("mostrar_roles.php");
     }
 
     if ($_POST) {

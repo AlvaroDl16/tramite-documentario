@@ -33,10 +33,10 @@
             <label for="sexo_usuario">Genero:
                 "<?php echo $lista['sexo'] ?>"
                 <select name="sexo_usuario" id="sexo_usuario" required>
-                        <option value="">Seleccione genero...</option>
-                        <option value="M">Masculino</option>
-                        <option value="F">Femenino</option>
-                        <option value="F">39 tipos de gay</option>
+                        <option  value="">Seleccione genero...</option>
+                        <option  value="M">Masculino</option>
+                        <option  value="F">Femenino</option>
+                        <option  value="F">39 tipos de gay</option>
                 </select>
             </label><br>
 

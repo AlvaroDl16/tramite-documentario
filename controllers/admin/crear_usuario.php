@@ -16,7 +16,9 @@
         $opciones_rol = $_POST['opciones_rol'];
         $opciones_area = $_POST['opciones_area'];
 
-        $sentencia = $conexion->prepare("INSERT INTO `usuarios` (`id_usuario`, `username`, `password`, `nombres`, `apellidos`, `direccion`, `telefono`, `dni`, `sexo`, `id_rol`, `id_area`) VALUES (NULL, :xuser, :pass, :nombres_usuario, :apellidos_usuario, :direccion_usuario, :telefono_usuario, :dni_usuario, :sexo_usuario, :opciones_rol, :opciones_area)");
+        $sentencia = $conexion->prepare("INSERT INTO `usuarios` 
+        (`id_usuario`, `username`, `password`, `nombres`, `apellidos`, `direccion`, `telefono`, `dni`, `sexo`, `id_rol`, `id_area`) 
+        VALUES (NULL, :xuser, :pass, :nombres_usuario, :apellidos_usuario, :direccion_usuario, :telefono_usuario, :dni_usuario, :sexo_usuario, :opciones_rol, :opciones_area)");
         $sentencia->bindParam(":xuser", $usuario);
         $sentencia->bindParam(":pass", $pass);
         $sentencia->bindParam(":nombres_usuario", $nombres_usuario);
@@ -33,12 +35,8 @@
 
     }
 
-    $consulta = $conexion->prepare("SELECT * FROM areas_administrativas");
-    $consulta->execute();
-    $lista_areas = $consulta->fetchAll(PDO::FETCH_ASSOC);
+    include("mostrar_areas.php");
 
-    $consulta2 = $conexion->prepare("SELECT * FROM roles");
-    $consulta2->execute();
-    $lista_roles = $consulta2->fetchAll(PDO::FETCH_ASSOC);
+    include("mostrar_roles.php");
 
 ?>

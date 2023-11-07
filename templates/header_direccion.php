@@ -54,9 +54,9 @@ if (!isset($_SESSION['usuario'])) {
             <li >
                 <a id="dropdown" href="#" class="link white_mode"><i class="fa-solid fa-folder-open"></i>Tramites<i class="fa-solid fa-caret-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Redactar</a></li>
-                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Recibidos</a></li>
-                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Enviados</a></li>
+                    <li><a href="<?php echo $ulr_base;?>secciones/direccion/redactar.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Redactar</a></li>
+                    <li><a href="<?php echo $ulr_base;?>secciones/direccion/recibidos.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Recibidos</a></li>
+                    <li><a href="<?php echo $ulr_base;?>secciones/direccion/enviados.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Enviados</a></li>
                 </ul>
             </li>
             <li>

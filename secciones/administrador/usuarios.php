@@ -1,12 +1,6 @@
 <?php 
     
-    include("../../bd.php");
-
-    $consulta = $conexion->prepare("SELECT * FROM usuarios 
-    INNER JOIN roles 
-    ON usuarios.id_rol=roles.id_rol");
-    $consulta->execute();
-    $lista_usuarios = $consulta->fetchAll(PDO::FETCH_ASSOC);
+    include("../../controllers/admin/leer_usuarios.php");
 
 ?>
 
@@ -21,7 +15,10 @@
                     <th>Usuario</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
+                    <th>Dirección</th>
+                    <th>Genero</th>
                     <th>Rol</th>
+                    <th>Area</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -34,7 +31,10 @@
                         <td><?php echo $registro['username']; ?></td>
                         <td><?php echo $registro['nombres']; ?></td>
                         <td><?php echo $registro['apellidos']; ?></td>
+                        <td><?php echo $registro['direccion']; ?></td>
+                        <td><?php echo $registro['sexo']; ?></td>
                         <td><?php echo $registro['rol']; ?></td>
+                        <td><?php echo $registro['nombre_area']; ?></td>
                         <td>
                             <a href="<?php echo $ulr_base; ?>secciones/administrador/editar_usuario.php?txtID=<?php echo $registro['id_usuario']; ?>">
                             EDITAR</a> 
