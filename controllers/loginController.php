@@ -22,6 +22,7 @@ if ($_POST) {
         $_SESSION['usuario'] = $lista_usuarios["username"];
         $_SESSION['cargo'] = $lista_usuarios['rol'];
         $_SESSION['area_cargo'] = $lista_usuarios['nombre_area'];
+        $_SESSION['foto_us'] = $lista_usuarios['foto'];
 
         header("Location: controllers/verificar_rol.php");
     }else{

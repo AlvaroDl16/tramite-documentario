@@ -7,7 +7,7 @@
         $codigo = $_POST['codigo'];
         $remitente = $_POST['remitente'];
         $asunto = $_POST['asunto'];
-        $archivo = $_POST['archivo'];
+        $archivo = $_FILES['archivo']['name'];
         $fecha_envio = $_POST['fecha_envio'];
         $estado = $_POST['estado'];
         $area_destino = $_POST['area_destino'];
@@ -22,7 +22,15 @@
         $sentencia->bindParam(":codigo",$codigo);
         $sentencia->bindParam(":remitente",$remitente);
         $sentencia->bindParam(":asunto",$asunto);
-        $sentencia->bindParam(":archivo",$archivo);
+
+        $fecha = new DateTime();
+        $nombre_archivo = ($archivo!="")?$fecha->getTimestamp()."_".$_FILES['archivo']['name']:"";
+        $tmp_archivo = $_FILES['archivo']['tmp_name'];
+        if ($tmp_archivo!='') {
+            move_uploaded_file($tmp_archivo,"../../documents/".$nombre_archivo);
+        }
+        $sentencia->bindParam(":archivo",$nombre_archivo);
+
         $sentencia->bindParam(":fecha_envio",$fecha_envio);
         $sentencia->bindParam(":estado",$estado);
         $sentencia->bindParam(":area_destino",$area_destino);

@@ -14,7 +14,7 @@
         <div class="form__container">
         <h2>Formulario de envio</h2>
 
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <label>Codigo de documento: 
                     <input type="text" name="codigo" required>
                 </label>
@@ -57,7 +57,7 @@
                 </label>
                 
                 <input type="submit" value="Enviar">
-                <a href="<?php echo $ulr_base; ?>secciones/desarrollo_sistemas/index.php">Cancelar</a>
+                <a href="<?php echo $ulr_base; ?>secciones/direccion/index.php">Cancelar</a>
             </form>
 
         </div>

@@ -23,7 +23,7 @@ if (!isset($_SESSION['usuario'])) {
 
 <header class="header_wrapper">
     <div class="user_text white_mode">
-        <img src="<?php echo $ulr_base;?>images/alvaro.jpg" alt="" class="user_img">
+        <img src="<?php echo $ulr_base;?>images/<?php echo $_SESSION['foto_us']?>" alt="" class="user_img">
         <h3 class="user_name">Bienvenido <?php echo $_SESSION['usuario'].'-'.$_SESSION['area_cargo'];?></h3>
     </div>
 

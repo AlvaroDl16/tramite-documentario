@@ -48,6 +48,31 @@
         $sentencia->bindParam(":id_usuario", $id);
         $sentencia->execute();
 
+        
+        $foto = $_FILES['foto']['name'];
+        $fecha = new DateTime();
+        $nombre_foto = ($foto!="")?$fecha->getTimestamp()."_".$_FILES['foto']['name']:"";
+        $tmp_foto = $_FILES['foto']['tmp_name'];
+        if ($tmp_foto!='') {
+            move_uploaded_file($tmp_foto,"../../images/".$nombre_foto);
+
+            $consulta = $conexion->prepare("SELECT foto FROM usuarios WHERE id_usuario=:id_usuario");
+            $consulta->bindParam(":id_usuario", $txtID);
+            $consulta->execute();
+            $regsitro_foto = $consulta->fetch(PDO::FETCH_LAZY);
+
+            if (isset($regsitro_foto['foto']) && $regsitro_foto['foto']!="") {
+                if (file_exists("../../images/".$regsitro_foto['foto'])) {
+                    unlink("../../images/".$regsitro_foto['foto']);
+                }
+            }
+            $sentencia = $conexion->prepare("UPDATE `usuarios` SET foto=:foto
+            WHERE id_usuario=:id_usuario");
+            $sentencia->bindParam(":foto", $nombre_foto);
+            $sentencia->bindParam(":id_usuario", $id);
+            $sentencia->execute();
+        }
+
         header("Location:".$ruta_base."secciones/administrador/usuarios.php");
     }
     

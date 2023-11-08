@@ -4,6 +4,9 @@ session_start();
 
 $ulr_base = "http://localhost/sistema_suiza/";
 
+$user_img = $ulr_base.'images/'.$_SESSION['foto_us'];
+$user_default = $ulr_base.'images/user.jpg';
+
 //verificamos si hay usuario logueado y si el secretario pertenece a esta area
 
 if (!isset($_SESSION['usuario'])) {
@@ -26,7 +29,14 @@ if (!isset($_SESSION['usuario'])) {
 
 <header class="header_wrapper">
     <div class="user_text white_mode">
-        <img src="<?php echo $ulr_base;?>images/alvaro.jpg" alt="" class="user_img">
+        <?php
+            if ($_SESSION['foto_us']!="") {
+                echo '<img src="'.$user_img.'" class="user_img"';
+            }else{
+                echo '<img src="'.$user_default.'" class="user_img"';
+            }
+        ?>
+        <img src="<?php echo $ulr_base;?>images/<?php echo $_SESSION['foto_us']?>" alt="" class="user_img">
         <h3 class="user_name">Bienvenido <?php echo $_SESSION['usuario'].'-'.$_SESSION['area_cargo'];?></h3>
     </div>
 

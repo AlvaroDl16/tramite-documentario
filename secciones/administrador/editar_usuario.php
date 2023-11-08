@@ -4,31 +4,47 @@
 
 <?php include("../../templates/header.php");?>
 
-<section>
-        <form method="post">
+    <section>
+        <form method="post" enctype="multipart/form-data">
             <h3>Datos del usuario</h3>
-            <label for="id">Id:<input type="text" name="txtID" readOnly placeholder="Id" value="<?php echo $txtID;?>"></label>
+            <label>Id:
+                <input type="text" name="txtID" readOnly placeholder="Id" value="<?php echo $txtID;?>">
+            </label>
 
-            <label for="xuser"><input type="text" placeholder="Usuario" 
-            name="xuser" required value="<?php echo $lista['username'];?>"></label>
+            <label>
+                <input type="text" placeholder="Usuario" 
+                name="xuser" required value="<?php echo $lista['username'];?>">
+            </label>
 
-            <label for="pass"><input type="text" placeholder="Contraseña" 
-            name="pass" required value="<?php echo $lista['password'];?>"></label>
+            <label>
+                <input type="text" placeholder="Contraseña" 
+                name="pass" required value="<?php echo $lista['password'];?>">
+            </label>
 
-            <label for="nombres_usuario"><input type="text" placeholder="Nombres" 
-            name="nombres_usuario" required value="<?php echo $lista['nombres'];?>"></label>
+            <label>
+                <input type="text" placeholder="Nombres" 
+                name="nombres_usuario" required value="<?php echo $lista['nombres'];?>">
+            </label>
 
-            <label for="apellidos_usuario"><input type="text" placeholder="Apellidos" 
-            name="apellidos_usuario" required value="<?php echo $lista['apellidos'];?>"></label> <br>
+            <label>
+                <input type="text" placeholder="Apellidos" 
+                name="apellidos_usuario" required value="<?php echo $lista['apellidos'];?>">
+            </label> <br>
 
-            <label for="direccion_usuario"><input type="text" placeholder="Direccion" 
-            name="direccion_usuario" required value="<?php echo $lista['direccion'];?>"></label> 
+            <label>
+                <input type="text" placeholder="Direccion" 
+                name="direccion_usuario" required value="<?php echo $lista['direccion'];?>">
+            </label> 
 
-            <label for="telefono_usuario"><input type="text" placeholder="Telefono" 
-            name="telefono_usuario" required value="<?php echo $lista['telefono'];?>"></label> 
+            <label>
+                <input type="text" placeholder="Telefono" 
+                name="telefono_usuario" required value="<?php echo $lista['telefono'];?>">
+            </label> 
 
-            <label for="dni_usuario"><input type="text" placeholder="DNI" 
-            name="dni_usuario" required value="<?php echo $lista['dni'];?>"></label> 
+            <label>
+                <input type="text" placeholder="DNI" 
+                name="dni_usuario" required value="<?php echo $lista['dni'];?>">
+            </label> 
 
             <label for="sexo_usuario">Genero:
                 "<?php echo $lista['sexo'] ?>"
@@ -59,6 +75,13 @@
                     <?php } ?>
                 </select>
             </label>
+
+            <label>Foto:
+                <img src="<?php echo $ulr_base."images/".$lista['foto'];?>" 
+                width="80px">
+                <input type="file" name="foto" >
+            </label>
+
             <input type="submit" value="Actualizar">
             <a href="<?php echo $ulr_base; ?>secciones/administrador/usuarios.php">Cancelar</a>
         </form>
