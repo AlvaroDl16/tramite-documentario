@@ -12,13 +12,17 @@ if (!isset($_SESSION['usuario'])) {
     header("location: ../../error.php");
 }
 ?>
+
+<?php
+    include("../../controllers/secretarias/alertas.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de gestion documentaria</title>
-    <link rel="stylesheet" href="<?php echo $ulr_base;?>css/styles.css">
+    <link rel="stylesheet" href="<?php echo $ulr_base;?>css/estilos.css">
     <script src="https://kit.fontawesome.com/4c66ccb783.js" crossorigin="anonymous"></script>
     
 </head>
@@ -55,7 +59,7 @@ if (!isset($_SESSION['usuario'])) {
                 <a id="dropdown" href="#" class="link white_mode"><i class="fa-solid fa-folder-open"></i>Tramites<i class="fa-solid fa-caret-down"></i></a>
                 <ul class="submenu">
                     <li><a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/redactar.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Redactar</a></li>
-                    <li><a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/recibidos.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Recibidos</a></li>
+                    <li><a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/recibidos.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Recibidos <span class="alert"><?php echo $num_pendientes['pendientes']; ?></span></a></li>
                     <li><a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/enviados.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Enviados</a></li>
                 </ul>
             </li>

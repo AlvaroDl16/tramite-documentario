@@ -25,7 +25,7 @@ body{
     "sidebar main";
     width: 100vw;
     height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: 'Poppins', sans-serif;
     transition: background-color .3s;
 }
@@ -196,8 +196,32 @@ i{
     background-color: var(--gray_color);
 }
 
+.alert{
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    background: red;
+    border-radius: 50%;
+    padding: 5px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: alerta .5s infinite alternate;
+}
+
+@keyframes alerta{
+    0%{rotate: 10deg;}
+    35%{rotate: -10deg;}
+    70%{rotate: 10deg;}
+    100%{rotate: -10deg;}
+}
+
 /* estilos del main */
 
 main{
     padding: 40px 20px;
+    overflow: auto;
 }

@@ -38,35 +38,36 @@
         $sentencia->bindParam(":tipo",$tipo);
 
         $sentencia->execute();
+        
         switch ($_SESSION['area_cargo']) {
             case 'direccion':
                 header("Location:".$ruta_base."secciones/direccion/enviados.php");
                 break;
-    
+        
             case 'unidad academica':
                 header("location:".$ruta_base."secciones/unidad_academica/enviados.php");
                 break;
-    
+        
             case 'secretaria academica':
                 header("location:".$ruta_base."secciones/secretaria_academica/enviados.php");
                 break;
-    
+        
             case 'contabilidad academica':
                 header("location: ../secciones/contabilidad_academica/enviados.php");
                 break;
-    
+        
             case 'abastecimiento':
                 header("location:".$ruta_base."secciones/abastecimiento/enviados.php");
                 break;
-    
+        
             case 'tesoreria':
                 header("location:".$ruta_base."secciones/tesoreria/enviados.php");
                 break;
-    
+        
             case 'dsi':
                 header("Location:".$ruta_base."secciones/desarrollo_sistemas/enviados.php");
                 break;
-    
+        
             default:
                 echo "no existe esa ruta";
                 break;
