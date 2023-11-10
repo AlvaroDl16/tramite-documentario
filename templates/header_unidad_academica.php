@@ -15,6 +15,11 @@ if (!isset($_SESSION['usuario'])) {
     header("location: ../../error.php");
 }
 ?>
+
+<?php
+    include("../../controllers/secretarias/alertas.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +70,7 @@ if (!isset($_SESSION['usuario'])) {
                 <a id="dropdown" href="#" class="link white_mode"><i class="fa-solid fa-folder-open"></i>Tramites<i class="fa-solid fa-caret-down"></i></a>
                 <ul class="submenu">
                     <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Redactar</a></li>
-                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Recibidos</a></li>
+                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Recibidos <span class="alert"><?php echo $num_pendientes['pendientes']; ?></span></a></li>
                     <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Enviados</a></li>
                 </ul>
             </li>

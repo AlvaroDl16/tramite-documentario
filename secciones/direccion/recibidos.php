@@ -39,7 +39,11 @@
                     <td><?php echo $registro['id_tipo']; ?></td>
                     <td><?php echo $registro['estado']; ?></td>
                     <td><?php echo $registro['area_origen']; ?></td>
-                    <td>Aceptar | Rechazar</td>
+                    <td>Aceptar | 
+                        <a href="<?php echo $ulr_base; ?>controllers/secretarias/rechazar.php?txtID=<?php echo $registro['id_doc']; ?>">
+                            Rechazar
+                        </a>
+                    </td>
                 </tr>
                 <?php } ?>
 

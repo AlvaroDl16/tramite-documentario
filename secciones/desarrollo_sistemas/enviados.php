@@ -20,6 +20,7 @@
         <table border="1">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Codigo</th>
                     <th>Remitente</th>
                     <th>Asunto</th>
@@ -35,6 +36,7 @@
 
                 <?php foreach($lista_areas as $registro){ ?>
                 <tr>
+                    <td><?php echo $registro['id_doc']; ?></td>
                     <td><?php echo $registro['codigo']; ?></td>
                     <td><?php echo $registro['remitente']; ?></td>
                     <td><?php echo $registro['asunto']; ?></td>
@@ -47,8 +49,9 @@
                         <a href="
                         <?php echo $ulr_base; ?>secciones/desarrollo_sistemas/editar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">Editar
                         </a> | 
-                        <a href="
-                        <?php echo $ulr_base; ?>controllers/secretarias/eliminar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">Eliminar</a>
+                        <a href="<?php echo $ulr_base; ?>controllers/secretarias/eliminar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
+                        Eliminar
+                        </a>
                     </td>
                 </tr>
                 <?php } ?>

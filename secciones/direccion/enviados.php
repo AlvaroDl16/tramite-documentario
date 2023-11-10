@@ -42,7 +42,12 @@
                     <td><?php echo $registro['estado']; ?></td>
                     <td><?php echo $registro['area_destino']; ?></td>
                     <td>
-                        Editar | Eliminar
+                        <a href="<?php echo $ulr_base; ?>secciones/direccion/editar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
+                            Editar
+                        </a> | 
+                        <a href="<?php echo $ulr_base; ?>controllers/secretarias/eliminar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
+                            Eliminar
+                        </a>
                     </td>
                 </tr>
                 <?php } ?>
