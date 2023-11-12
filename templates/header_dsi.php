@@ -22,11 +22,12 @@ if (!isset($_SESSION['usuario'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de gestion documentaria</title>
-    <link rel="stylesheet" href="<?php echo $ulr_base;?>css/estilos.css">
+    <link rel="stylesheet" href="<?php echo $ulr_base;?>css/esti.css">
     <script src="https://kit.fontawesome.com/4c66ccb783.js" crossorigin="anonymous"></script>
     
 </head>
 <body>
+    
 
 <header class="header_wrapper">
     <div class="user_text white_mode">
@@ -72,5 +73,4 @@ if (!isset($_SESSION['usuario'])) {
         </ul>
     </nav>
 </aside>
-
 <main class="main">

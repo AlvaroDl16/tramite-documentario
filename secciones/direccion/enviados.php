@@ -3,8 +3,8 @@
 <?php
     include("../../bd.php");
     $area_origen = $_SESSION['area_cargo'];
-    $consulta = $conexion->prepare("SELECT * FROM documentos
-    WHERE area_origen='$area_origen'");
+    $consulta = $conexion->prepare("SELECT * FROM documentos, tipo_documento
+    WHERE area_origen='$area_origen' AND documentos.id_tipo=tipo_documento.id_tipo");
     $consulta->execute();
     $lista_areas = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
@@ -38,7 +38,7 @@
                     <td><?php echo $registro['asunto']; ?></td>
                     <td><?php echo $registro['archivo']; ?></td>
                     <td><?php echo $registro['fecha_envio']; ?></td>
-                    <td><?php echo $registro['id_tipo']; ?></td>
+                    <td><?php echo $registro['tipo']; ?></td>
                     <td><?php echo $registro['estado']; ?></td>
                     <td><?php echo $registro['area_destino']; ?></td>
                     <td>
