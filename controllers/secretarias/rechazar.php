@@ -1,9 +1,9 @@
 <?php
-if($_GET){
+if($_POST){
     $ruta_base = "http://localhost/sistema_suiza/";
     session_start();
     include("../../bd.php");
-    $txtid = $_GET['txtID'];
+    $txtid = $_POST['txtID'];
 
     $consulta = $conexion->prepare("SELECT estado FROM documentos WHERE id_doc=:id_doc");
     $consulta->bindParam("id_doc", $txtid);
@@ -12,10 +12,13 @@ if($_GET){
     $estado = $consulta->fetch(PDO::FETCH_LAZY);
 
     $estado = "rechazado";
+    $comentario = $_POST['comentario_rechazar'];
 
-    $sentencia = $conexion->prepare("UPDATE documentos SET estado=:estado 
+    $sentencia = $conexion->prepare("UPDATE documentos 
+    SET estado=:estado, comentario_rechazar=:comentario_rechazar 
     WHERE id_doc=:id_doc");
     $sentencia->bindParam(":estado", $estado);
+    $sentencia->bindParam(":comentario_rechazar", $comentario);
     $sentencia->bindParam(":id_doc", $txtid);
     $sentencia->execute();
 

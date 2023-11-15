@@ -2,7 +2,6 @@
 include("../../bd.php");
 $ruta_base = "http://localhost/sistema_suiza/";
    
-print_r($_POST);
 if($_POST){
     $id = $_POST['txtID'];
     $estado = "En proceso";

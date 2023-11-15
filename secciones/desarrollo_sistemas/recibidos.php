@@ -8,5 +8,6 @@
     </section>
 
     <?php include("../../mains/modal_despachar.php"); ?>
+    <?php include("../../mains/modal_rechazar.php"); ?>
 
 <?php include("../../templates/footer.php"); ?>

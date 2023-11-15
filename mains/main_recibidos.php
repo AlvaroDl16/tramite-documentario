@@ -31,7 +31,7 @@
                 <?php if ($registro['estado'] == "pendiente") { ?>
 
                     <tr>
-                        <td><?php echo $registro['id_doc']; ?></td>
+                        <td class="doc_id"><?php echo $registro['id_doc']; ?></td>
                         <td><?php echo $registro['codigo']; ?></td>
                         <td><?php echo $registro['remitente']; ?></td>
                         <td><?php echo $registro['asunto']; ?></td>
@@ -48,10 +48,10 @@
                             <a href="<?php echo $ulr_base; ?>controllers/secretarias/aceptar.php?txtID=<?php echo $registro['id_doc']; ?>">
                                 <i class="fa-solid fa-check"></i>
                             </a>  
-                            <button id="modal_despacho">
+                            <a href="#" class="modal_despacho" id="<?php echo $registro['id_doc']; ?>">
                                 <i class="fa-regular fa-share-from-square"></i>
-                            </button>
-                            <a href="<?php echo $ulr_base; ?>controllers/secretarias/rechazar.php?txtID=<?php echo $registro['id_doc']; ?>">
+                            </a>
+                            <a href="#" id="<?php echo $registro['id_doc']; ?>" class="modal_rechazo">
                                 <i class="fa-solid fa-x"></i>
                             </a>
                         </td>
