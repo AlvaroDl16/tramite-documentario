@@ -28,7 +28,7 @@
 
                 <?php foreach($lista_areas as $registro){ ?>
                     
-                <?php if ($registro['estado'] == "pendiente") { ?>
+                <?php if ($registro['estado'] == "pendiente" || $registro['estado'] == "En proceso") { ?>
 
                     <tr>
                         <td class="doc_id"><?php echo $registro['id_doc']; ?></td>

@@ -4,6 +4,9 @@ session_start();
 
 $ulr_base = "http://localhost/sistema_suiza/";
 
+$user_img = $ulr_base.'images/'.$_SESSION['foto_us'];
+$user_default = $ulr_base.'images/user.jpg';
+
 //verificamos si hay usuario logueado y si el secretario pertenece a esta area
 
 if (!isset($_SESSION['usuario'])) {
@@ -31,6 +34,13 @@ if (!isset($_SESSION['usuario'])) {
 
 <header class="header_wrapper">
     <div class="user_text white_mode">
+        <?php
+            if ($_SESSION['foto_us']!="") {
+                echo '<img src="'.$user_img.'" class="user_img"';
+            }else{
+                echo '<img src="'.$user_default.'" class="user_img"';
+            }
+        ?>
         <img src="<?php echo $ulr_base;?>images/<?php echo $_SESSION['foto_us']?>" alt="" class="user_img">
         <h3 class="user_name">Bienvenido <?php echo $_SESSION['usuario'].'-'.$_SESSION['area_cargo'];?></h3>
     </div>
@@ -59,9 +69,36 @@ if (!isset($_SESSION['usuario'])) {
             <li >
                 <a id="dropdown" href="#" class="link white_mode"><i class="fa-solid fa-folder-open"></i>Tramites<i class="fa-solid fa-caret-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Redactar</a></li>
-                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Recibidos <span class="alert"><?php echo $num_pendientes['pendientes']; ?></span></a></li>
-                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Enviados</a></li>
+                    <li>
+                        <a href="<?php echo $ulr_base;?>secciones/secretaria_academica/redactar.php" 
+                        class="submenu__link white_mode">
+                        <i class="fa-solid fa-caret-right"></i>Redactar
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $ulr_base;?>secciones/secretaria_academica/recibidos.php" 
+                        class="submenu__link white_mode">
+                        <i class="fa-solid fa-caret-right"></i>Recibidos 
+                        <?php if($num_pendientes['pendientes'] > 0 && $num_proceso['proceso'] > 0){ ?>
+                            <span class="alert">
+                                <?php 
+                                $total_alertas=$num_pendientes['pendientes']+$num_proceso['proceso'];
+                                echo $total_alertas; 
+                                ?>
+                            </span>
+                        <?php }elseif($num_proceso['proceso'] > 0){ ?>
+                            <span class="alert"><?php echo $num_proceso['proceso']; ?></span>
+                        <?php }elseif($num_pendientes['pendientes'] > 0){ ?>
+                            <span class="alert"><?php echo $num_pendientes['pendientes']; ?></span>
+                        <?php } ?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $ulr_base;?>secciones/secretaria_academica/enviados.php" 
+                        class="submenu__link white_mode">
+                        <i class="fa-solid fa-caret-right"></i>Enviados
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li>

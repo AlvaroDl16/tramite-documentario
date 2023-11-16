@@ -1,18 +1,17 @@
-<?php include("../../templates/header_direccion.php"); ?>
+<?php include("../../templates/header_unidad_academica.php"); ?>
 
 <?php
 include("../../controllers/secretarias/mostrar_enviados.php");
 ?>
 
     <section>
-        <h1>ver docs enviados direccion</h1>
-        <a href="<?php echo $ulr_base; ?>secciones/direccion/redactar.php">Redactar nuevo</a>
+        <h1>ver docs enviados unidad academica</h1>
+        <a href="<?php echo $ulr_base; ?>secciones/unidad_academica/redactar.php">Redactar nuevo</a>
        
 
         <table border="1">
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Codigo</th>
                     <th>Remitente</th>
                     <th>Asunto</th>
@@ -28,7 +27,6 @@ include("../../controllers/secretarias/mostrar_enviados.php");
 
                 <?php foreach($lista_areas as $registro){ ?>
                 <tr>
-                    <td><?php echo $registro['id_doc']; ?></td>
                     <td><?php echo $registro['codigo']; ?></td>
                     <td><?php echo $registro['remitente']; ?></td>
                     <td><?php echo $registro['asunto']; ?></td>
@@ -38,7 +36,7 @@ include("../../controllers/secretarias/mostrar_enviados.php");
                     <td><?php echo $registro['estado']; ?></td>
                     <td><?php echo $registro['area_destino']; ?></td>
                     <td>
-                        <a href="<?php echo $ulr_base; ?>secciones/direccion/editar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
+                        <a href="<?php echo $ulr_base; ?>secciones/unidad_academica/editar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
                             Editar
                         </a> | 
                         <a href="<?php echo $ulr_base; ?>controllers/secretarias/eliminar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">

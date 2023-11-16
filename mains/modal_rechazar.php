@@ -4,7 +4,8 @@
         <form action="<?php echo $ulr_base;?>controllers/secretarias/rechazar.php?" method="post">
             <label>Motivo:
                 <textarea name="comentario_rechazar" 
-                cols="40" rows="5" placeholder="Escribe tu motivo aqui...">
+                cols="40" rows="5" 
+                placeholder="Escribe tu motivo aqui..." required>
                 </textarea>
             </label>
 

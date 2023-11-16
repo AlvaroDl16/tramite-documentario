@@ -59,9 +59,36 @@ if (!isset($_SESSION['usuario'])) {
             <li >
                 <a id="dropdown" href="#" class="link white_mode"><i class="fa-solid fa-folder-open"></i>Tramites<i class="fa-solid fa-caret-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/redactar.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Redactar</a></li>
-                    <li><a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/recibidos.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Recibidos <span class="alert"><?php echo $num_pendientes['pendientes']; ?></span></a></li>
-                    <li><a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/enviados.php" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Enviados</a></li>
+                    <li>
+                        <a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/redactar.php" 
+                        class="submenu__link white_mode">
+                        <i class="fa-solid fa-caret-right"></i>Redactar
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/recibidos.php" 
+                        class="submenu__link white_mode">
+                        <i class="fa-solid fa-caret-right"></i>Recibidos 
+                        <?php if($num_pendientes['pendientes'] > 0 && $num_proceso['proceso'] > 0){ ?>
+                            <span class="alert">
+                                <?php 
+                                $total_alertas=$num_pendientes['pendientes']+$num_proceso['proceso'];
+                                echo $total_alertas; 
+                                ?>
+                            </span>
+                        <?php }elseif($num_proceso['proceso'] > 0){ ?>
+                            <span class="alert"><?php echo $num_proceso['proceso']; ?></span>
+                        <?php }elseif($num_pendientes['pendientes'] > 0){ ?>
+                            <span class="alert"><?php echo $num_pendientes['pendientes']; ?></span>
+                        <?php } ?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/enviados.php" 
+                        class="submenu__link white_mode">
+                        <i class="fa-solid fa-caret-right"></i>Enviados
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li>

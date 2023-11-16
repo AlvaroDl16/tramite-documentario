@@ -1,12 +1,12 @@
-<?php include("../../templates/header_direccion.php"); ?>
+<?php include("../../templates/header_secretaria_academica.php"); ?>
 
 <?php
 include("../../controllers/secretarias/mostrar_enviados.php");
 ?>
 
     <section>
-        <h1>ver docs enviados direccion</h1>
-        <a href="<?php echo $ulr_base; ?>secciones/direccion/redactar.php">Redactar nuevo</a>
+        <h1>ver docs enviados secretaria academica</h1>
+        <a href="<?php echo $ulr_base; ?>secciones/secretaria_academica/redactar.php">Redactar nuevo</a>
        
 
         <table border="1">
@@ -38,7 +38,7 @@ include("../../controllers/secretarias/mostrar_enviados.php");
                     <td><?php echo $registro['estado']; ?></td>
                     <td><?php echo $registro['area_destino']; ?></td>
                     <td>
-                        <a href="<?php echo $ulr_base; ?>secciones/direccion/editar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
+                        <a href="<?php echo $ulr_base; ?>secciones/secretaria_academica/editar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
                             Editar
                         </a> | 
                         <a href="<?php echo $ulr_base; ?>controllers/secretarias/eliminar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
