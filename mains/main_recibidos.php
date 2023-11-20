@@ -38,7 +38,15 @@
                         <td><?php echo $registro['archivo']; ?></td>
                         <td><?php echo $registro['fecha_envio']; ?></td>
                         <td><?php echo $registro['tipo']; ?></td>
-                        <td><?php echo $registro['estado']; ?></td>
+                        <td>
+                            <?php
+                            if($registro['estado']=="En proceso"){
+                                echo "pendiente";
+                            }else{
+                                echo $registro['estado']; 
+                            }
+                             ?>
+                        </td>
                         <td><?php echo $registro['area_origen']; ?></td>
                         <td>
                             <a href="<?php echo $ulr_base; ?>documents/<?php echo $registro['archivo']; ?>"

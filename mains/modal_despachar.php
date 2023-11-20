@@ -14,23 +14,32 @@
 <section class="modal_despachar">
     
     <div>
-        <h2>Despachar documento</h2>
+        <h2 class="modal_title white_mode">Despachar documento</h2>
     </div>
     <div>
-        <form action="<?php echo $ulr_base;?>controllers/secretarias/despachar.php?" method="post">
-        <label>Area a despachar 
-            <select name="area_despacho" required>
-                <option value="">seleccione area</option>
+        <form action="<?php echo $ulr_base;?>controllers/secretarias/despachar.php?"
+         method="post" class="form_modal">
+        <div>
+        <label class="areas_container white_mode"><div>Despachar a:</div>
+            <div>
+            <select class="select_areas white_mode" name="area_despacho" required>
+                <option  value="">seleccione area...</option>
                 <?php foreach($lista_areas as $area){ ?>
+                    <?php if($area['nombre_area']!=$_SESSION['area_cargo']){ ?>
                     <option value="<?php echo $area['nombre_area']; ?>"><?php echo $area['nombre_area']; ?></option>
+                    <?php } ?>
                 <?php } ?>
             </select>
+            </div>
         </label>
-        <label>Id:
-            <input type="text" name="txtID" readOnly placeholder="Id" id="input_id">
+        </div>
+        <label>
+            <input type="text" name="txtID" readOnly placeholder="Id" id="input_id" hidden>
         </label>
-        <button type="submit">Despachar</button>
-        <button id="cancelar_modal">Cancelar</button>
+        <div class="buttons_modal">
+        <button class="btn_despacho" type="submit">Despachar</button>
+        <button class="btn_cancelar white_mode" id="cancelar_modal">Cancelar</button>
+        </div>
         </form>
     </div>
 </section>

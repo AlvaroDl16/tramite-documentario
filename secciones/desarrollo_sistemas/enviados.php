@@ -11,12 +11,15 @@
 
 ?>
 
-    <section>
-        <h1>ver docs enviados dsi</h1>
-        <a href="<?php echo $ulr_base; ?>secciones/desarrollo_sistemas/redactar.php">Redactar nuevo</a>
-       
+    <section class="container_mains">
 
-        <table border="1">
+        <h1 class="white_mode">Documentos enviados</h1>
+<br>
+    <div>
+        <a class="cta" href="<?php echo $ulr_base; ?>secciones/desarrollo_sistemas/redactar.php">Redactar nuevo</a>
+    </div><br>
+
+        <table class="table_enviados">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -27,14 +30,14 @@
                     <th>Fecha_envio</th>
                     <th>Tipo</th>
                     <th>Estado</th>
-                    <th>Area de destino</th>
+                    <th>Destino</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
 
                 <?php foreach($lista_areas as $registro){ ?>
-                <tr>
+                <tr class="white_mode">
                     <td><?php echo $registro['id_doc']; ?></td>
                     <td><?php echo $registro['codigo']; ?></td>
                     <td><?php echo $registro['remitente']; ?></td>
@@ -45,11 +48,12 @@
                     <td><?php echo $registro['estado']; ?></td>
                     <td><?php echo $registro['area_destino']; ?></td>
                     <td>
-                        <a href="
-                        <?php echo $ulr_base; ?>secciones/desarrollo_sistemas/editar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">Editar
-                        </a> | 
-                        <a href="<?php echo $ulr_base; ?>controllers/secretarias/eliminar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
-                        Eliminar
+                        <a class="ctas cta_editar" href="
+                        <?php echo $ulr_base; ?>secciones/desarrollo_sistemas/editar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        </a>| 
+                        <a class="ctas cta_eliminar" href="<?php echo $ulr_base; ?>controllers/secretarias/eliminar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
+                        <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>
                 </tr>

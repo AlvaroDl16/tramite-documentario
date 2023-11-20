@@ -10,14 +10,14 @@
 ?>
 
     <section >
-        <h1 class="white_mode">enviar nuevo documento area dsi</h1>
-        <div class="form__container">
+        
         
             <?php include("../../mains/main_redactar.php"); ?>
 
-                <a href="<?php echo $ulr_base; ?>secciones/desarrollo_sistemas/index.php">Cancelar</a>
+                    <a class="cta" href="<?php echo $ulr_base; ?>secciones/desarrollo_sistemas/index.php">Cancelar</a>
+                    </div>
+                </div>
             </form>
-
         </div>
     </section>
 

@@ -7,6 +7,9 @@
     <section>
         <form method="post" enctype="multipart/form-data">
             <h3>Datos del usuario</h3>
+            <?php if (isset($alerta)) {
+            echo $alerta;
+            }?>
             <label>
                 <input type="text" placeholder="Usuario" 
                 name="xuser" required>
@@ -59,7 +62,9 @@
                     <?php } ?>
                 </select>
             </label>
-
+            <?php if (isset($alerta2)) {
+            echo $alerta2;
+            }?>
             <label for="area_usuario">Area:
                 <select name="opciones_area" id="opciones_area" required>
                     <option value="">Seleccione area...</option>

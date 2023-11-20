@@ -4,8 +4,12 @@
     include("../../bd.php");
 
     if($_POST){
-        // print_r($_POST);
-        $usuario = $_POST['xuser'];
+        if($_POST['opciones_rol']==1 && $_POST['opciones_area']!=1){
+            $alerta = "no puedes brindar un area de secretario al administrador";
+            $alerta2 = "el administrador debe tener el area de administrador";
+            // header("location:".$ruta_base."secciones/administrador/usuarios.php");
+        }else{
+            $usuario = $_POST['xuser'];
         $pass = $_POST['pass'];
         $nombres_usuario = $_POST['nombres_usuario'];
         $apellidos_usuario = $_POST['apellidos_usuario'];
@@ -41,6 +45,9 @@
 
         $sentencia->execute();
         header("Location:".$ruta_base."secciones/administrador/usuarios.php");
+        }
+        // print_r($_POST);
+        
 
     }
 

@@ -1,8 +1,8 @@
 <h2>Formulario de Edicion</h2>
 
             <form method="post" enctype="multipart/form-data">
-                <label>Id:
-                    <input type="text" name="txtID" readOnly placeholder="Id" value="<?php echo $txtID;?>">
+                <label>
+                    <input type="text" name="txtID" hidden readOnly placeholder="Id" value="<?php echo $txtID;?>">
                 </label>
 
                 <label>Codigo de documento: 

@@ -10,8 +10,6 @@
 ?>
 
 <section >
-        <h1 class="white_mode">enviar nuevo documento area dsi</h1>
-        <div class="form__container">
         
             <?php include("../../mains/main_redactar.php"); ?>
 

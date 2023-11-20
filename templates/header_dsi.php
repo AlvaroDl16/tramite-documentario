@@ -22,7 +22,7 @@ if (!isset($_SESSION['usuario'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de gestion documentaria</title>
-    <link rel="stylesheet" href="<?php echo $ulr_base;?>css/styles.css">
+    <link rel="stylesheet" href="<?php echo $ulr_base;?>css/estil.css">
     <script src="https://kit.fontawesome.com/4c66ccb783.js" crossorigin="anonymous"></script>
     
 </head>
@@ -57,7 +57,7 @@ if (!isset($_SESSION['usuario'])) {
                 <a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/index.php" class="link white_mode"><i class="fa-solid fa-house"></i>Inicio</a>
             </li>
             <li >
-                <a id="dropdown" href="#" class="link white_mode"><i class="fa-solid fa-folder-open"></i>Tramites<i class="fa-solid fa-caret-down"></i></a>
+                <a id="dropdown" href="#" class="link white_mode"><div class="texts_icons"><div><i class="fa-solid fa-folder-open"></i>Tramites</div><i class="fa-solid fa-caret-down"></i></div></a>
                 <ul class="submenu">
                     <li>
                         <a href="<?php echo $ulr_base;?>secciones/desarrollo_sistemas/redactar.php" 
