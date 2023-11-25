@@ -1,8 +1,7 @@
 <?php
 
+include_once("../ruta.php");
 session_start();
-
-$ruta_base="http://localhost/sistema_suiza/";
 
 if ($_SESSION['cargo'] == "secretaria") {
     switch ($_SESSION['area_cargo']) {
@@ -38,7 +37,6 @@ if ($_SESSION['cargo'] == "secretaria") {
             echo "no existe esa ruta";
             break;
     }
-    // header("location: ../secciones/secretarios.php");
 }elseif ($_SESSION['cargo'] == "administrador") {
     header("location:".$ruta_base."secciones/administrador/index.php");
 }

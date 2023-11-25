@@ -1,7 +1,5 @@
 <?php
-
+include("../ruta.php");
 session_start();
 session_destroy();
-header("Location: ../login.php");
-
-?>
+header("Location:".$ruta_base."login.php");

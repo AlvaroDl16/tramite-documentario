@@ -3,7 +3,7 @@
         <img class="figure_img" src="<?php echo $ulr_base; ?>images/send_document.svg" alt="">
     </figure>
 
-    <form class="form_redactar" method="post" enctype="multipart/form-data">
+    <form class="form_redactar" action="<?php echo $ulr_base; ?>controllers/secretarias/redactar.php" method="post" enctype="multipart/form-data">
     <h2 class="white_mode">Redacción de documentos</h2>
     <div class="inputs_container">
             
@@ -14,17 +14,17 @@
             </div>
 
             <div>
-                <label class="white_mode">Remitente</label>
-                <input type="text" name="remitente" class="inputs" required>
+                <label for="xremitente" class="white_mode">Remitente</label>
+                <input type="text" name="remitente" id="xremitente" class="inputs" required>
             </div>
         </div>
         
         <div>
             <div>
-                <label class="white_mode" for="xremitente">Asunto</label> 
+                <label class="white_mode" for="xasunto">Asunto</label> 
             </div>
             <div>
-                <input type="text" name="asunto" id="xremitente" class="inputs" required>
+                <input type="text" name="asunto" id="xasunto" class="inputs" required>
             </div>
         </div>
 

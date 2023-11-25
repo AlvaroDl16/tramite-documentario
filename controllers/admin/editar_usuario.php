@@ -1,7 +1,6 @@
 <?php 
-
-    $ruta_base = "http://localhost/sistema_suiza/";
-    include("../../bd.php");
+    include_once("../../ruta.php");
+    include_once("../../bd.php");
 
     if (isset($_GET['txtID'])) {
         $txtID=$_GET['txtID'];
@@ -72,9 +71,7 @@
             $sentencia->bindParam(":id_usuario", $id);
             $sentencia->execute();
         }
+        $msn = "Usuario actualizado";
 
-        header("Location:".$ruta_base."secciones/administrador/usuarios.php");
+        header("Location:".$ruta_base."secciones/administrador/usuarios.php?msn=".$msn);
     }
-    
-    
-?>

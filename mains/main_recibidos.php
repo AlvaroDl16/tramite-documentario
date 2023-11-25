@@ -5,11 +5,8 @@
     WHERE area_destino='$area_destino' AND documentos.id_tipo=tipo_documento.id_tipo");
     $consulta->execute();
     $lista_areas = $consulta->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
-
-
-        <table border="1">
+        <table class="table_enviados" id="tabla_id">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -26,9 +23,9 @@
             </thead>
             <tbody>
 
-                <?php foreach($lista_areas as $registro){ ?>
-                    
-                <?php if ($registro['estado'] == "pendiente" || $registro['estado'] == "En proceso") { ?>
+                <?php foreach($lista_areas as $registro){
+                        if ($registro['estado'] == "pendiente" || $registro['estado'] == "En proceso") { 
+                ?>
 
                     <tr>
                         <td class="doc_id"><?php echo $registro['id_doc']; ?></td>
@@ -65,11 +62,7 @@
                         </td>
                     </tr>
 
-                <?php } ?>
-
-                <?php } ?>
-
-                
+                <?php }  } ?>
 
             </tbody>
         </table>

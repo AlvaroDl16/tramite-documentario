@@ -1,36 +1,41 @@
 <?php
-
+include_once("../../ruta.php");
 session_start();
-
-$ulr_base = "http://localhost/sistema_suiza/";
-
 $user_img = $ulr_base.'images/'.$_SESSION['foto_us'];
 $user_default = $ulr_base.'images/user.jpg';
-
 //verificamos si hay usuario logueado y si el secretario pertenece a esta area
-
 if (!isset($_SESSION['usuario'])) {
     header("Location: ../../login.php");
 }elseif ($_SESSION['cargo'] !== "secretaria" || $_SESSION['area_cargo'] !== "unidad academica") {
     header("location: ../../error.php");
 }
-?>
-
-<?php
     include("../../controllers/secretarias/alertas.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de gestion documentaria</title>
-    <link rel="stylesheet" href="<?php echo $ulr_base;?>css/styles.css">
+    <link rel="stylesheet" href="<?php echo $ulr_base;?>css/estil.css">
     <script src="https://kit.fontawesome.com/4c66ccb783.js" crossorigin="anonymous"></script>
-    
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+  
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+
+<?php if(isset($_GET['msn'])){ ?>
+    <script>
+        Swal.fire({icon:"succes", title:"<?php echo $_GET['msn']; ?>"})
+    </script>
+<?php } ?>
 
 <header class="header_wrapper">
     <div class="user_text white_mode">
@@ -67,7 +72,12 @@ if (!isset($_SESSION['usuario'])) {
                 <a href="<?php echo $ulr_base;?>secciones/unidad_academica/index.php" class="link white_mode"><i class="fa-solid fa-house"></i>Inicio</a>
             </li>
             <li >
-                <a id="dropdown" href="#" class="link white_mode"><i class="fa-solid fa-folder-open"></i>Tramites<i class="fa-solid fa-caret-down"></i></a>
+                <a id="dropdown" href="#" class="link white_mode">
+                    <div class="texts_icons">
+                        <div><i class="fa-solid fa-folder-open"></i>Tramites</div>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                </a>
                 <ul class="submenu">
                     <li>
                         <a href="<?php echo $ulr_base;?>secciones/unidad_academica/redactar.php" 
@@ -105,7 +115,7 @@ if (!isset($_SESSION['usuario'])) {
                 <a href="#" class="link white_mode"><i class="fa-solid fa-file-circle-question"></i>Consulta</a>
             </li>
             <li>
-                <a href="#" class="link white_mode"><i class="fa-solid fa-trash-can"></i>Papelera</a>
+                <a href="#" class="link white_mode"><i class="fa-solid fa-user"></i>Perfil</a>
             </li>
         </ul>
     </nav>

@@ -1,6 +1,6 @@
 const modal = document.querySelector('.modal__container');
 const btn = document.querySelectorAll('.modal_despacho');
-const btn_cancelar = document.getElementById('cancelar_modal');
+const btn_cancelar = document.getElementById('cancelar_modal_despacho');
 const input_id = document.getElementById('input_id');
 
 btn.forEach(element => {
@@ -12,6 +12,8 @@ btn.forEach(element => {
     })
 });
 
-btn_cancelar.addEventListener("click", ()=>{
-    modal.classList.remove('show_modal');
-})
+
+    btn_cancelar.addEventListener("click", ()=>{
+        modal.classList.remove('show_modal');
+    })
+

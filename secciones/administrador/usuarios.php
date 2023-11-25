@@ -1,14 +1,11 @@
 <?php 
-    
     include("../../controllers/admin/leer_usuarios.php");
-
+    include("../../templates/header.php");
 ?>
-
-<?php include("../../templates/header.php");?>
 
     <section>
         <a href="<?php echo $ulr_base; ?>secciones/administrador/crear_usuario.php">Crear nuevo usuario</a>
-        <table>
+        <table id="tabla_id">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -39,7 +36,7 @@
                             <a href="<?php echo $ulr_base; ?>secciones/administrador/editar_usuario.php?txtID=<?php echo $registro['id_usuario']; ?>">
                             EDITAR</a> 
                             | 
-                            <a href="<?php echo $ulr_base; ?>controllers/admin/eliminar_usuario.php?txtID=<?php echo $registro['id_usuario']; ?>">
+                            <a href="javascript:borrar_usuario(<?php echo $registro['id_usuario']; ?>)">
                             ELIMINAR</a>
                         </td>
                     </tr>

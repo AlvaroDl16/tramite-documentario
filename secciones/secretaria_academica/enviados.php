@@ -1,7 +1,6 @@
-<?php include("../../templates/header_secretaria_academica.php"); ?>
-
-<?php
-include("../../controllers/secretarias/mostrar_enviados.php");
+<?php 
+    include("../../templates/header_secretaria_academica.php");
+    include("../../controllers/secretarias/mostrar_enviados.php");
 ?>
 
     <section>
@@ -9,7 +8,7 @@ include("../../controllers/secretarias/mostrar_enviados.php");
         <a href="<?php echo $ulr_base; ?>secciones/secretaria_academica/redactar.php">Redactar nuevo</a>
        
 
-        <table border="1">
+        <table border="1" id="tabla_id">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -41,7 +40,7 @@ include("../../controllers/secretarias/mostrar_enviados.php");
                         <a href="<?php echo $ulr_base; ?>secciones/secretaria_academica/editar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
                             Editar
                         </a> | 
-                        <a href="<?php echo $ulr_base; ?>controllers/secretarias/eliminar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
+                        <a href="javascript:borrar(<?php echo $registro['id_doc']; ?>)">
                             Eliminar
                         </a>
                     </td>

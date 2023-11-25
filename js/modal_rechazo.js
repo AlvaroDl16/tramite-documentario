@@ -12,6 +12,9 @@ btn_recahzo.forEach(el => {
     })
 });
 
-btn_cancelar_rechazo.addEventListener("click", ()=>{
-    modal_rechazar.classList.remove('show_modal_rechazar');
-})
+
+
+    btn_cancelar_rechazo.addEventListener("click", ()=>{
+        modal_rechazar.classList.remove('show_modal_rechazar');
+    })
+

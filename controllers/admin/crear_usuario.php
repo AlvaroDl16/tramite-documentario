@@ -1,8 +1,6 @@
 <?php 
-
-    $ruta_base = "http://localhost/sistema_suiza/";
-    include("../../bd.php");
-
+    include_once("../../ruta.php");
+    include_once("../../bd.php");
     if($_POST){
         if($_POST['opciones_rol']==1 && $_POST['opciones_area']!=1){
             $alerta = "no puedes brindar un area de secretario al administrador";
@@ -42,17 +40,13 @@
             move_uploaded_file($tmp_foto,"../../images/".$nombre_foto);
         }
         $sentencia->bindParam(":foto", $nombre_foto);
-
         $sentencia->execute();
-        header("Location:".$ruta_base."secciones/administrador/usuarios.php");
+        $msn = "Usuario creado";
+        header("Location:".$ruta_base."secciones/administrador/usuarios.php?msn=".$msn);
         }
-        // print_r($_POST);
-        
 
     }
 
     include("mostrar_areas.php");
-
     include("mostrar_roles.php");
 
-?>

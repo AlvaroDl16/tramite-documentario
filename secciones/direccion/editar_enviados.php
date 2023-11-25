@@ -1,9 +1,6 @@
-
-
-<?php include("../../templates/header_direccion.php"); ?>
-
-<?php
-    include("../../bd.php");
+<?php 
+    include("../../templates/header_direccion.php");
+    include_once("../../bd.php");
     include("../../controllers/secretarias/mostrar_tipos_doc.php");
     include("../../controllers/admin/mostrar_areas.php");
 

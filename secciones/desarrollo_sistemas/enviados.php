@@ -1,7 +1,6 @@
-<?php include("../../templates/header_dsi.php"); ?>
-
-<?php
-    include("../../bd.php");
+<?php 
+    include("../../templates/header_dsi.php"); 
+    include_once("../../bd.php");
     $area_origen = $_SESSION['area_cargo'];
     $consulta = $conexion->prepare("SELECT * FROM documentos, tipo_documento
     WHERE area_origen='$area_origen' AND documentos.id_tipo=tipo_documento.id_tipo
@@ -14,15 +13,14 @@
     <section class="container_mains">
 
         <h1 class="white_mode">Documentos enviados</h1>
-<br>
+    <br>
     <div>
         <a class="cta" href="<?php echo $ulr_base; ?>secciones/desarrollo_sistemas/redactar.php">Redactar nuevo</a>
     </div><br>
 
-        <table class="table_enviados">
+        <table class="table_enviados" id="tabla_id">
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Codigo</th>
                     <th>Remitente</th>
                     <th>Asunto</th>
@@ -38,7 +36,6 @@
 
                 <?php foreach($lista_areas as $registro){ ?>
                 <tr class="white_mode">
-                    <td><?php echo $registro['id_doc']; ?></td>
                     <td><?php echo $registro['codigo']; ?></td>
                     <td><?php echo $registro['remitente']; ?></td>
                     <td><?php echo $registro['asunto']; ?></td>
@@ -52,7 +49,7 @@
                         <?php echo $ulr_base; ?>secciones/desarrollo_sistemas/editar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
                         <i class="fa-regular fa-pen-to-square"></i>
                         </a>| 
-                        <a class="ctas cta_eliminar" href="<?php echo $ulr_base; ?>controllers/secretarias/eliminar_enviados.php?txtID=<?php echo $registro['id_doc']; ?>">
+                        <a class="ctas cta_eliminar" href="javascript:borrar(<?php echo $registro['id_doc']; ?>)">
                         <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>

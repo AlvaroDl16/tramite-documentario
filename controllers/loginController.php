@@ -3,7 +3,7 @@
 session_start();
 
 if ($_POST) {
-    include("bd.php");
+    include_once("bd.php");
 
     $sentencia = $conexion->prepare("SELECT *, count(*) as x_users FROM usuarios, roles, areas_administrativas 
     WHERE usuarios.id_rol=roles.id_rol AND usuarios.id_area=areas_administrativas.id_area 
@@ -29,5 +29,3 @@ if ($_POST) {
         $mensaje = "vuelve a intentar";
     }
 }
-
-?>

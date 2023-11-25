@@ -1,11 +1,7 @@
-
-
-<?php include("../../templates/header_unidad_academica.php"); ?>
-
-<?php
-    include("../../bd.php");
+<?php 
+    include("../../templates/header_unidad_academica.php");
+    include_once("../../bd.php");
     include("../../controllers/secretarias/mostrar_tipos_doc.php");
-    include("../../controllers/secretarias/redactar.php");
     include("../../controllers/admin/mostrar_areas.php");
 ?>
 

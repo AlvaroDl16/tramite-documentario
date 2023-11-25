@@ -1,8 +1,7 @@
 <?php 
     include("../../controllers/admin/editar_usuario.php");
+    include("../../templates/header.php");
 ?>
-
-<?php include("../../templates/header.php");?>
 
     <section>
         <form method="post" enctype="multipart/form-data">

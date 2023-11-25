@@ -1,13 +1,8 @@
-
 <?php
-    include("../../bd.php");
+    include_once("../../bd.php");
     $consulta_area = $conexion->prepare("SELECT * FROM areas_administrativas");
     $consulta_area->execute();
     $lista_areas = $consulta_area->fetchAll(PDO::FETCH_ASSOC);
-?>
-
-<?php
-
 ?>
 
 <div class="modal__container">
@@ -24,11 +19,11 @@
             <div>
             <select class="select_areas white_mode" name="area_despacho" required>
                 <option  value="">seleccione area...</option>
-                <?php foreach($lista_areas as $area){ ?>
-                    <?php if($area['nombre_area']!=$_SESSION['area_cargo']){ ?>
+                <?php foreach($lista_areas as $area){
+                        if($area['nombre_area']!=$_SESSION['area_cargo']){ 
+                ?>
                     <option value="<?php echo $area['nombre_area']; ?>"><?php echo $area['nombre_area']; ?></option>
-                    <?php } ?>
-                <?php } ?>
+                <?php }  } ?>
             </select>
             </div>
         </label>
@@ -37,10 +32,12 @@
             <input type="text" name="txtID" readOnly placeholder="Id" id="input_id" hidden>
         </label>
         <div class="buttons_modal">
-        <button class="btn_despacho" type="submit">Despachar</button>
-        <button class="btn_cancelar white_mode" id="cancelar_modal">Cancelar</button>
+            <button class="btn_despacho" type="submit">Despachar</button>
+            <span class="btn_cancelar white_mode" id="cancelar_modal_despacho">Cancelar</span>
         </div>
         </form>
+        <div>
+            </div>
     </div>
 </section>
 </div>

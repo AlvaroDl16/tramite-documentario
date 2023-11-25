@@ -1,3 +1,6 @@
+<?php
+    include("./ruta.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +10,6 @@
 </head>
 <body>
     <h1>Bienvenido a la landing page del IESTP suiza</h1>
-    <a href="login.php">Iniciar sesion</a>
+    <a href="<?php echo $ruta_base; ?>login.php">Iniciar sesion</a>
 </body>
 </html>

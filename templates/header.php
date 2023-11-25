@@ -1,8 +1,6 @@
 <?php
-
+include_once("../../ruta.php");
 session_start();
-
-$ulr_base = "http://localhost/sistema_suiza/";
 if (!isset($_SESSION['usuario'])) {
     header("Location: ../../login.php");
 }elseif ($_SESSION['cargo'] !== "administrador" || $_SESSION['area_cargo'] !== "administrador") {
@@ -15,11 +13,25 @@ if (!isset($_SESSION['usuario'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de gestion documentaria</title>
-    <link rel="stylesheet" href="<?php echo $ulr_base;?>css/styles.css">
+    <link rel="stylesheet" href="<?php echo $ulr_base;?>css/estil.css">
     <script src="https://kit.fontawesome.com/4c66ccb783.js" crossorigin="anonymous"></script>
-    
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+  
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+
+<?php if(isset($_GET['msn'])){ ?>
+    <script>
+        Swal.fire({icon:"succes", title:"<?php echo $_GET['msn']; ?>"})
+    </script>
+<?php } ?>
 
 <header class="header_wrapper">
     <div class="user_text white_mode">
@@ -46,32 +58,43 @@ if (!isset($_SESSION['usuario'])) {
     <nav class="nav__container">
         <ul class="nav__links">
             <li>
-                <a href="<?php echo $ulr_base;?>secciones/administrador/index.php" class="link white_mode"><i class="fa-solid fa-house"></i>Inicio</a>
+                <a href="<?php echo $ulr_base;?>secciones/administrador/index.php" class="link white_mode">
+                    <i class="fa-solid fa-house"></i>Inicio
+                </a>
             </li>
-            <li >
-                <a id="dropdown" href="#" class="link white_mode"><i class="fa-solid fa-folder-open"></i>Tramites<i class="fa-solid fa-caret-down"></i></a>
+            
+            <li>
+                <a id="dropdown" href="#" class="link white_mode">
+                    <div class="texts_icons">
+                        <div><i class="fa-solid fa-gear"></i>configuración</div>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                </a>
                 <ul class="submenu">
-                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Redactar</a></li>
-                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Recibidos</a></li>
-                    <li><a href="#" class="submenu__link white_mode"><i class="fa-solid fa-caret-right"></i>Enviados</a></li>
+                    <li>
+                        <a href="<?php echo $ulr_base;?>secciones/administrador/usuarios.php" class="submenu__link white_mode">
+                            <i class="fa-solid fa-users"></i>Usuarios
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="<?php echo $ulr_base;?>secciones/administrador/crear_usuario.php" class="submenu__link white_mode">
+                            <i class="fa-solid fa-user-plus"></i>Crear usuario
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="<?php echo $ulr_base;?>secciones/administrador/crear_usuario.php" class="submenu__link white_mode">
+                            <i class="fa-solid fa-school"></i>Areas
+                        </a>
+                    </li>
                 </ul>
             </li>
+
             <li>
-                <a href="#" class="link white_mode"><i class="fa-solid fa-file-circle-question"></i>Consulta</a>
-            </li>
-            <li>
-                <a href="#" class="link white_mode"><i class="fa-solid fa-trash-can"></i>Papelera</a>
-            </li>
-            <li>
-                <a href="#" class="link white_mode"><i class="fa-solid fa-gear"></i>configuracion</a>
-                
-            </li>
-            <li>
-                <a href="<?php echo $ulr_base;?>secciones/administrador/usuarios.php" class="link white_mode"><i class="fa-solid fa-users"></i></i>Usuarios</a>
-                
-            </li>
-            <li>
-                <!-- <a href="<?php echo $ulr_base;?>secciones/direccion/usuarios.php" class="link white_mode"><i class="fa-solid fa-gear"></i>Usuarios</a> -->
+                <a href="#" class="link white_mode">
+                    <i class="fa-solid fa-user"></i>Perfil
+                </a>
                 
             </li>
         </ul>

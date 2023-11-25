@@ -1,8 +1,9 @@
-<?php include("./controllers/loginController.php");?>
+<?php 
+include("./controllers/loginController.php");
+include("./ruta.php");
 
-<?php
     if(!empty($_SESSION['usuario'])){
-        header("Location: controllers/verificar_rol.php");
+        header("Location:".$ruta_base."controllers/verificar_rol.php");
     }else{
 
 ?>

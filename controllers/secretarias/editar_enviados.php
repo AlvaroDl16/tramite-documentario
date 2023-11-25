@@ -1,8 +1,4 @@
 <?php
-
-$ruta_base = "http://localhost/sistema_suiza/";
-include("../../bd.php");
-
 // hacemos la consulta para darles los valores a los inputs
 if (isset($_GET['txtID'])) {
     $txtID=$_GET['txtID'];
@@ -69,35 +65,36 @@ if ($_POST) {
         $sentencia->bindParam(":id_doc", $id);
         $sentencia->execute();
     }
+    $msn = "Registro editado";
 
     //redireccionamos segun el area del usuario
     switch ($_SESSION['area_cargo']) {
         case 'direccion':
-            header("Location:".$ruta_base."secciones/direccion/enviados.php");
+            header("Location:".$ruta_base."secciones/direccion/enviados.php?msn=".$msn);
             break;
     
         case 'unidad academica':
-            header("location:".$ruta_base."secciones/unidad_academica/enviados.php");
+            header("location:".$ruta_base."secciones/unidad_academica/enviados.php?msn=".$msn);
             break;
     
         case 'secretaria academica':
-            header("location:".$ruta_base."secciones/secretaria_academica/enviados.php");
+            header("location:".$ruta_base."secciones/secretaria_academica/enviados.php?msn=".$msn);
             break;
     
         case 'contabilidad academica':
-            header("location: ../secciones/contabilidad_academica/enviados.php");
+            header("location: ../secciones/contabilidad_academica/enviados.php?msn=".$msn);
             break;
     
         case 'abastecimiento':
-            header("location:".$ruta_base."secciones/abastecimiento/enviados.php");
+            header("location:".$ruta_base."secciones/abastecimiento/enviados.php?msn=".$msn);
             break;
     
         case 'tesoreria':
-            header("location:".$ruta_base."secciones/tesoreria/enviados.php");
+            header("location:".$ruta_base."secciones/tesoreria/enviados.php?msn=".$msn);
             break;
     
         case 'dsi':
-            header("Location:".$ruta_base."secciones/desarrollo_sistemas/enviados.php");
+            header("Location:".$ruta_base."secciones/desarrollo_sistemas/enviados.php?msn=".$msn);
             break;
     
         default:
@@ -106,4 +103,3 @@ if ($_POST) {
     }
 
 }
-?>

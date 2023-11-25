@@ -1,22 +1,14 @@
 <?php
-
+include_once("../../ruta.php");
 session_start();
-
-$ulr_base = "http://localhost/sistema_suiza/";
-
 //verificamos si hay usuario logueado y si el secretario pertenece a esta area
-
 if (!isset($_SESSION['usuario'])) {
     header("Location: ../../login.php");
 }elseif ($_SESSION['cargo'] !== "secretaria" || $_SESSION['area_cargo'] !== "direccion") {
     header("location: ../../error.php");
 }
-?>
-
-<?php
     include("../../controllers/secretarias/alertas.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,9 +18,23 @@ if (!isset($_SESSION['usuario'])) {
     
     <link rel="stylesheet" href="<?php echo $ulr_base;?>css/estil.css">
     <script src="https://kit.fontawesome.com/4c66ccb783.js" crossorigin="anonymous"></script>
-    
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+  
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+
+<?php if(isset($_GET['msn'])){ ?>
+    <script>
+        Swal.fire({icon:"succes", title:"<?php echo $_GET['msn']; ?>"})
+    </script>
+<?php } ?>
 
 <header class="header_wrapper">
     <div class="user_text white_mode">
@@ -41,7 +47,9 @@ if (!isset($_SESSION['usuario'])) {
             <span><i class="fa-solid fa-cloud-sun"></i></span>
             <span><i class="fa-solid fa-moon"></i></span>
         </button>
-        <a href="<?php echo $ulr_base;?>controllers/cerrar.php" class="cerrar_sesion"><i class="fa-solid fa-arrow-right-from-bracket"></i>cerrar sesion</a>
+        <a href="<?php echo $ulr_base;?>controllers/cerrar.php" class="cerrar_sesion">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>cerrar sesion
+        </a>
     </div>
 </header>
 
@@ -49,16 +57,25 @@ if (!isset($_SESSION['usuario'])) {
 <aside class="sidebar">
     <header class="logo_container">
         <img src="<?php echo $ulr_base;?>images/logo.png" alt="" class="logo_img">
-        <h1 class="logo_title white_mode">IESTP <span class="logo_title-blue">SUIZA</span></h1>
+        <h1 class="logo_title white_mode">
+            IESTP <span class="logo_title-blue">SUIZA</span>
+        </h1>
     </header>   
 
     <nav class="nav__container">
         <ul class="nav__links">
             <li>
-                <a href="<?php echo $ulr_base;?>secciones/direccion/index.php" class="link white_mode"><i class="fa-solid fa-house"></i>Inicio</a>
+                <a href="<?php echo $ulr_base;?>secciones/direccion/index.php" class="link white_mode">
+                    <i class="fa-solid fa-house"></i>Inicio
+                </a>
             </li>
             <li >
-                <a id="dropdown" href="#" class="link white_mode"><i class="fa-solid fa-folder-open"></i>Tramites<i class="fa-solid fa-caret-down"></i></a>
+                <a id="dropdown" href="#" class="link white_mode">
+                    <div class="texts_icons">
+                        <div><i class="fa-solid fa-folder-open"></i>Tramites</div>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                </a>
                 <ul class="submenu">
                     <li>
                         <a href="<?php echo $ulr_base;?>secciones/direccion/redactar.php" 
@@ -93,10 +110,14 @@ if (!isset($_SESSION['usuario'])) {
                 </ul>
             </li>
             <li>
-                <a href="#" class="link white_mode"><i class="fa-solid fa-file-circle-question"></i>Consulta</a>
+                <a href="#" class="link white_mode">
+                    <i class="fa-solid fa-file-circle-question"></i>Consulta
+                </a>
             </li>
             <li>
-                <a href="#" class="link white_mode"><i class="fa-solid fa-trash-can"></i>Papelera</a>
+                <a href="#" class="link white_mode">
+                    <i class="fa-solid fa-user"></i>Perfil
+                </a>
             </li>
         </ul>
     </nav>

@@ -9,7 +9,7 @@
     --gray_color: #e1e1e1;
     --color_grisaseo: #80807f;
     --dark_color: #1e1f26;
-    --verydark_color: #000000;
+    --verydark_color: #050506;
 }
 
 *{
@@ -179,7 +179,11 @@ body.dark .link:hover, body.dark .submenu__link:hover{
 }
 .submenu{
     list-style: none;
-    display: none;
+    /* display: none; */
+    height: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform .3s;
 }
 .submenu__link{
     text-decoration: none;
@@ -190,7 +194,8 @@ body.dark .link:hover, body.dark .submenu__link:hover{
     transition-duration: .3s, .3s;
 }
 .submenu__show{
-    display: block;
+    height: auto;
+    transform: scaleY(1);
 }
 .link{
     display: block;
