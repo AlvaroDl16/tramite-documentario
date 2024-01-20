@@ -239,19 +239,29 @@ i{
 /* estilos del main */
 
 main{
-    padding: 30px 0;
+    grid-area: main;
+    /* height: 100vh; */
     overflow: auto;
 }
 
 /* ==== MAIN REDACTAR ==== */
 .container_mains{
     width: 95%;
-    padding: 20px;
+    padding: 30px 0;
     margin: 0 auto;
-    background-color: var(--bg_color_white);
-    border-radius: 5px;
+    /* background-color: var(--bg_color_white); */
+    /* border-radius: 5px; */
     overflow-x: auto;
-    transition: background-color .3s;
+    /* transition: background-color .3s; */
+}
+.main_enviados_title{
+    width: 100%;
+    height: 60px;
+    display: grid;
+    align-items: center;
+    padding: 0 30px;
+    background-color: var(--primary_color_blue);
+    color: var(--bg_color_white);
 }
 .redactar__container{
     display: flex;
@@ -333,21 +343,18 @@ body.dark .cta{
     display: block;
 }
 
-body.dark .container_mains{
-    background-color: var(--dark_color);
-}
 
 /* ===== MAIN ENVIADOS ====== */
 
 .table_enviados{
     width: 100%;
     border-collapse: collapse;
-    /* min-width: 500px; */
+    padding-top: 20px;
 }
 .table_enviados thead{
     background-color: var(--primary_color_blue);
     color: var(--bg_color_white);
-    text-align: left;
+    text-align: center;
 }
 .table_enviados th, 
 .table_enviados td{
@@ -357,8 +364,21 @@ body.dark .container_mains{
     font-size: 15px;
     border-bottom: 1px solid var(--color_grisaseo);
 }
+.table_enviados tbody td{
+    text-align: center;
+}
+.table_enviados tbody td:nth-of-type(1){
+    max-width: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.table_enviados tbody td:nth-of-type(4){
+    max-width: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
 .table_enviados tbody tr:nth-of-type(even){
-    background-color: var(--gray_color);
+    background-color: var(--bg_color_white);
     transition: background-color .3s;
 }
 body.dark .table_enviados tbody tr:nth-of-type(even){
@@ -379,6 +399,134 @@ body.dark .table_enviados tbody tr:nth-of-type(even){
     color: var(--red_color);
 }
 
+/* ===== MAIN INDEX ====== */
+
+.section_index{
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 32%;
+    grid-template-rows: 100px 1fr;
+    grid-template-areas: 
+    "cards1 cards1"
+    "cards2 cards3"
+    ;
+}
+.cards_container{
+    grid-area: cards1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.card{
+    height: 100px;
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+.card:first-of-type{
+    box-shadow: -2px 0 0 orange;
+}
+.card:nth-of-type(2){
+    box-shadow: -2px 0 0 orangered;
+}
+.card:nth-of-type(3){
+    box-shadow: -2px 0 0 green;
+}
+.icon_card{
+    padding: 5px;
+    background-color: #1e1e1e;
+    border-radius: 50%;
+}
+.yellow_icon{
+    background-color: orange;
+}
+.orange_icon{
+    background-color: orangered;
+}
+.green_icon{
+    background-color: green;
+}
+.icon_card i{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+}
+.card_text{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card_enviados{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card_recibidos{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ===== MAIN PERFIL DE USUARIO ========== */
+
+.perfil_title{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.main_perfil{
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+.perfil_container{
+    background-color: #fff;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+}
+.editar_user{
+    opacity: .6;
+    pointer-events: none;
+}
+.editar_user_active{
+    pointer-events: all;
+    opacity: 1;
+}
+.basic_data{
+    display: flex;
+    gap: 20px;
+}
+.img_user{
+    width: 120px;
+}
+.user_names{
+    width: 100%;
+}
+.perfil_container label, .perfil_container input{
+    display: block;
+}
+.perfil_container input{
+    width: 100%;
+    padding: 5px;
+}
+.perfil_btns{
+    text-align: end;
+    margin-top: 20px;
+}
 /* ==== ESTILOS DE LOS MODALES ===== */
 
 .modal__container, .modal__container_rechazar{

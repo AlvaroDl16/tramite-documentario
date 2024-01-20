@@ -1,14 +1,7 @@
 <?php
-// hacemos la consulta para darles los valores a los inputs
-if (isset($_GET['txtID'])) {
-    $txtID=$_GET['txtID'];
-
-    $consulta = $conexion->prepare("SELECT * FROM documentos WHERE id_doc=:id_doc");
-    $consulta->bindParam(":id_doc", $txtID);
-    $consulta->execute();
-    $lista = $consulta->fetch(PDO::FETCH_LAZY);
-}
-
+include_once("../../bd.php");
+include_once("../../ruta.php");
+session_start();
 //cuando se haga el envio actualizamos los datos
 if ($_POST) {
     $id = $_POST['txtID'];
@@ -65,7 +58,7 @@ if ($_POST) {
         $sentencia->bindParam(":id_doc", $id);
         $sentencia->execute();
     }
-    $msn = "Registro editado";
+    $msn = "Registro actualizado";
 
     //redireccionamos segun el area del usuario
     switch ($_SESSION['area_cargo']) {

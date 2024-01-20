@@ -8,13 +8,16 @@
     <script>
         $(document).ready( function(){
             $("#tabla_id").DataTable({
-                "pageLength":6,
+                "pageLength":4,
                 lengthMenu:[
-                    [6,10,25,50],
-                    [6,10,25,50]
+                    [4,10,25,50],
+                    [4,10,25,50]
+                ],
+                columnDefs:[
+                    {orderable:false, targets:[8]}
                 ],
                 "languaje":{
-                    "url":"https://cdn.datatables.net/plug-ins/1.13.1/i18n/es-ES.json"
+                    "url":"https://cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json"
                 }
             });
         });

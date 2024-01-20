@@ -10,10 +10,9 @@
 
 ?>
 
+    <h1 class="main_enviados_title white_mode">Documentos enviados</h1>
     <section class="container_mains">
-
-        <h1 class="white_mode">Documentos enviados</h1>
-    <br>
+    
     <div>
         <a class="cta" href="<?php echo $ulr_base; ?>secciones/desarrollo_sistemas/redactar.php">Redactar nuevo</a>
     </div><br>

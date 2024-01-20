@@ -17,7 +17,7 @@ if (!isset($_SESSION['usuario'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de gestion documentaria</title>
-    <link rel="stylesheet" href="<?php echo $ulr_base;?>css/estil.css">
+    <link rel="stylesheet" href="<?php echo $ulr_base;?>css/sty.css">
     <script src="https://kit.fontawesome.com/4c66ccb783.js" crossorigin="anonymous"></script>
     <script
     src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -62,7 +62,7 @@ if (!isset($_SESSION['usuario'])) {
 
 <aside class="sidebar">
     <header class="logo_container">
-        <img src="<?php echo $ulr_base;?>images/logo.png" alt="" class="logo_img">
+        <img src="<?php echo $ulr_base;?>images/logo.webp" alt="" class="logo_img">
         <h1 class="logo_title white_mode">IESTP <span class="logo_title-blue">SUIZA</span></h1>
     </header>   
 

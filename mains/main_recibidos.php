@@ -9,7 +9,6 @@
         <table class="table_enviados" id="tabla_id">
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Codigo</th>
                     <th>Remitente</th>
                     <th>Asunto</th>
@@ -28,7 +27,6 @@
                 ?>
 
                     <tr>
-                        <td class="doc_id"><?php echo $registro['id_doc']; ?></td>
                         <td><?php echo $registro['codigo']; ?></td>
                         <td><?php echo $registro['remitente']; ?></td>
                         <td><?php echo $registro['asunto']; ?></td>

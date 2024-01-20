@@ -1,8 +1,8 @@
 <?php include("../../templates/header_dsi.php"); ?>
-    
-    <section>
-        <h1 class="white_mode">docs recibidos area dsi</h1>
 
+<h1 class="main_enviados_title white_mode">docs recibidos area dsi</h1>
+    <section class="container_mains">
+    
         <?php include("../../mains/main_recibidos.php"); ?>
 
     </section>

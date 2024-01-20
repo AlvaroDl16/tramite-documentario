@@ -1,6 +1,6 @@
 <h2>Formulario de Edicion</h2>
 
-            <form method="post" enctype="multipart/form-data">
+            <form action="<?php echo $ulr_base?>controllers/secretarias/editar_enviados.php" method="post" enctype="multipart/form-data">
                 <label>
                     <input type="text" name="txtID" hidden readOnly placeholder="Id" value="<?php echo $txtID;?>">
                 </label>

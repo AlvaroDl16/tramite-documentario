@@ -3,7 +3,15 @@
     include_once("../../bd.php");
     include("../../controllers/secretarias/mostrar_tipos_doc.php");
     include("../../controllers/admin/mostrar_areas.php");
-    include("../../controllers/secretarias/editar_enviados.php");
+    // hacemos la consulta para darles los valores a los inputs
+    if (isset($_GET['txtID'])) {
+        $txtID=$_GET['txtID'];
+
+        $consulta = $conexion->prepare("SELECT * FROM documentos WHERE id_doc=:id_doc");
+        $consulta->bindParam(":id_doc", $txtID);
+        $consulta->execute();
+        $lista = $consulta->fetch(PDO::FETCH_LAZY);
+    }
 ?>
 
     <section >
